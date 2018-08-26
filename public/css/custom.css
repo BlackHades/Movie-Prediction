@@ -77,3 +77,11 @@
 
 #resize{ width: 512px; height: 200px; overflow: hidden; margin-bottom: 50px; }
 #resize img { width: 100%; }
+
+td {
+    white-space: normal !important;
+    word-wrap: break-word;
+}
+table {
+    table-layout: fixed;
+}

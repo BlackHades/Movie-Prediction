@@ -64,6 +64,8 @@ class MovieController extends Controller
     public function destroy(Movie $movie)
     {
         try {
+            $movie->asset()->delete();
+            $movie->comments()->delete();
             $movie->delete();
         } catch (\Exception $e) {
         }
@@ -118,8 +120,10 @@ class MovieController extends Controller
     public function chart(Movie $movie){
         $count = $movie->comments()->count();
         $rating = $movie->comments()->sum('rating');
-        $data = (double)($rating/($count * 5));
-
+        if($rating > 0)
+            $data = (double)($rating/($count * 5));
+        else
+            $data = 0.0;
         $chart = new MovieChart;
         $chart->dataset($movie->title, 'doughnut', [($data), (1- $data)])
             ->options(['backgroundColor' => ["#228B22", '#ff0000']])

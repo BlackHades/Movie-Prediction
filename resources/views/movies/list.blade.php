@@ -11,7 +11,7 @@
             </div>
             <div class="col-12" id="main_movie">
                 <button id="movie_add_btn" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus-circle"></i> Add Movies</button><br/><br/>
-                <table class="table table-responsive">
+                <table class="table table-hover">
                     <thead>
                     <th>S/N</th>
                     <th>Created At</th>
@@ -31,7 +31,7 @@
                                 <td>{{$movie->year}}</td>
                                 <td>
                                     <a href="{{route('movie.show',['movie' => $movie->id])}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-eye"></i> </a>
-                                    <a href="" class="btn btn-outline-warning btn-sm"><i class="fa fa-star"></i> </a>
+                                    <a href="{{route('movie.chart',['movie' => $movie->id])}}" class="btn btn-outline-warning btn-sm"><i class="fa fa-star"></i> </a>
                                     <a href="{{route('movie.delete',['movie' => $movie->id])}}" onclick="return confirm('Are you sure you want to delete this movie?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i> </a>
                                 </td>
                             </tr>

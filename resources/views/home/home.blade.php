@@ -29,6 +29,7 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-1"></div>
         @endforeach
     </div>
 @endsection
